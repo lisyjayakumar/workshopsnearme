@@ -2054,6 +2054,8 @@ nav{
 						                <option value="Auto-Mobile Service">Auto-Mobile Service</option>
 						                <option value="Tire Replacement">Tire Replacement</option>
 						                <option value="Oil Change">Oil Change</option>
+										<option value="Painting Services">Painting Services</option>
+										<option value="A/C Repair">A/C Repair</option>
 						            </select>
 						        </div>
 						        <div class="col-12 col-sm-6">
@@ -2062,6 +2064,8 @@ nav{
 						                <option value="Car">Car</option>
 						                <option value="Bike">Bike</option>
 						                <option value="Auto Rikshaw">Auto Rikshaw</option>
+										<option value="Scooter">Scooter</option>
+										
 						            </select>
 						        </div>
 						        <div class="col-12 col-sm-6">
@@ -2719,33 +2723,35 @@ function topFunction() {
 
         const workshops = {
 
-            'Attingal': ['Friends Automobiles','Saras car ac workshops','Ganga Workshops','Saroj Workshop','Mariyam Service Center','The Marshal Garage','Friday Workshop'],
+            'Attingal': ['Friends Automobiles And Industrial Workshop','Saras Car A/C Workshop','Ganga Two Wheeler Workshop','Saroj Two Wheeler Workshop',
+			'Mariyam all car service center','The Marshal Garage','Friday Club'],
 
-            'Kazhakuttom': ['Gopans Service Center', 'Bosch Workshop','Perfect Maruti Service center','Mars Auto Electrical Workshops','Surabhi Workshops','Concept Color','SB Workshop'],
+            'Kazhakuttom': ['Gopan\'s Bicycles Service', 'Friends Auto Electrical works','Surabhi Autos and two wheeler workshop','Concept Colours',
+			'Sb Two Weeler Workshop','Kumar Auto Works'],
 
-            'Kilimanoor': ['Focus Welding '],
+            'Kilimanoor': ['Indus Motors'],
 
-            'Kovalam': ['Nithya Workshop', 'U V P Two Wheeler','Amme Bhaghavathi','Shiva Sakthi'],
+            'Kovalam': ['Nithya Workshop', 'U V P Two Wheeler Works','Amme Bhaghavathi'],
 
-            'Palayam': ['Kailas Two Wheeler', 'Elegent workshop',],
+            'Palayam': ['Kaila\'s two Wheeler Workshop','Elegant Workshop','Sree padam Two wheeler Workshop','Sivakumar\'s workshop','M Tech Motors','Chandran\'s Workshop','Kannan Car Workshop'
+					  ,'Vinod Workshop','MySyara - Car Care on your schedule'],
 
-            'Pothencod': ['Royal Driver car', 'German Motors','Vinayaka Service Station',
+            'Pothencod': ['Royal Drive Car Accessories', 'German Motors','Vinayaka Service Station',
 
-  		  'German Tech Skoda','DS Service Center','Aramam Service Station','Vision Auto Center','Car cool Car Ac','Bismi Car center'],
+  		  'Germantech Skoda Service Center','D S Maruti Service Center','Aaramam Service Station','Vision Auto Center','Car Cool Car Ac And Auto Electrical Works','Bismi Car Service Centre','Salamath Service Station'],
 
-            'Trivandrum': ['My Car Motors', 'Indigoo International','RVS MOTO HUB','Moto Lab',
+            'Trivandrum': ['My Car Motors and Spares', 'My TVS Automobile Solutions Ltd','RVS MOTO HUB','Moto Lab',
 
   		  'M Tech Motors','Car Cardiac Care','Real Touch Automobiles','Imperial',
 
   		  'Sm Car Beauty Clinic','Kelester Engineers','Vinod Workshop'],
 
-            'Varkala': ['Royal autox', 'Sree Mookambika','MS Two Wheeler Works','Petrol Issues Garage',
+            'Varkala': ['Royal Autox', 'Sree Mookambika Two Wheeler Works','MS Two Wheeler Works','Marikar Honda Service Center','Petrol Issues Garage',
+			'Jackson two wheeler garage','Maruti Suzuki Authorised Service','Radhakrishna Motor Workshop'],
 
-  		  'Marikar Honda Service','Jackson two wheeler','Maruti Suzuki Service','Radhakrishna Workshop'],
+            'Venjaramood': ['T V S Car Repair','H.K.Motors','Venus Motors','Tata Motors','Vineeth Paints'],
 
-            'Venjaramood': ['T V S Car Repair', 'H.K.Motors','Venus Motors','Tata Motors','Vineeth Paints'],
-
-            'Vizhijam': ['Shiva Sakthi', 'Ambady Auto Works','Siva Automobiles', 'K G Auto Works']
+            'Vizhijam': ['Shiva Sakthi Automobiles', 'Ambady Auto Works','Siva Automobiles', 'K G Auto Works']
 
         };
 
@@ -2753,28 +2759,72 @@ function topFunction() {
 
         const services = {
 
-            'Vehicle Washes': ['Venus Motors','Sm Car Beauty Clinic','Imperial','Real Touch Automobiles','Car Cardiac Care','RVS MOTO HUB','My Car Motors','Marikar Honda Service', 'Maruti Suzuki Service','Bismi Car center','Car cool Car Ac','Vision Auto Center','Aramam Service Station','DS Service Center','German Tech Skoda','Vinayaka Service Station','German Motors','Saroj Workshop', 'The Marshal Garage', 'Mariyam Service Center', 'Workshop7'],
+            'Vehicle Washes':['Moto Lab','M Tech Motors','Real Touch Automobiles','Sm Car Beauty Clinic','Kelester Engineers',
+			'M Tech Motors','Perfect Maruti Service Center','Concept Colours','Friends Automobiles And Industrial Workshop',
+			'Saroj Two Wheeler Workshop','Mariyam all car service center','Friday Club','Royal Autox','Marikar Honda Service Center',
+			'T V S Car Repair','H.K.Motors','Tata Motors','Vineeth Paints','Royal Drive Car Accessories','Germantech Skoda Service Center',
+			'Aaramam Service Station','Salamath Service Station','Indus Motors'],
 
-            'Engine Service': ['Vinod Workshop','Gopans Service Center','T V S Car Repair', 'H.K.Motors','Venus Motors','Tata Motors','Vineeth Paints','K G Auto Works','Siva Automobiles','Shiva Sakthi','Kelester Engineers','Real Touch Automobiles','M Tech Motors','Moto Lab','RVS MOTO HUB','My Car Motors','Royal autox','Sree Mookambika','MS Two Wheeler Works','Jackson two wheeler','Maruti Suzuki Service','Radhakrishna Workshop','Shiva Sakthi','Amme Bhaghavathi','U V P Two Wheeler','Focus Welding','Elegent workshop','Kailas Two Wheeler','Bismi Car center','Car cool Car Ac','Vision Auto Center','Aramam Service Station', 'DS Service Center','German Tech Skoda','Vinayaka Service Station','German Motors','Royal Driver car','Friday Workshop','The Marshal Garage','Friends Automobiles ', 'Saras car ac workshops', 'Ganga Workshops', 'Saroj Workshop','Mariyam Service Center'],
+            'Engine Service': ['My Car Motors and Spares', 'My TVS Automobile Solutions Ltd','RVS MOTO HUB','Moto Lab',
+
+			  		  'M Tech Motors','Car Cardiac Care','Real Touch Automobiles','Imperial',
+
+			  		  'Sm Car Beauty Clinic','Kelester Engineers','Vinod Workshop',
+					  'Elegant Workshop','Sree padam Two wheeler Workshop','Sivakumar\'s workshop','M Tech Motors','Chandran\'s Workshop','Kannan Car Workshop'
+					  ,'Vinod Workshop','MySyara - Car Care on your schedule',
+					  'Friends Auto Electrical works','Surabhi Autos and two wheeler workshop','Concept Colours',
+					  'Kumar Auto Works','Friends Automobiles And Industrial Workshop','Saras Car A/C Workshop','Ganga Two Wheeler Workshop','Saroj Two Wheeler Workshop',
+					  			'Mariyam all car service center','The Marshal Garage','Friday Club',
+								'Friends Automobiles And Industrial Workshop','Saras Car A/C Workshop','Ganga Two Wheeler Workshop','Saroj Two Wheeler Workshop',
+											'Mariyam all car service center','The Marshal Garage','Friday Club',
+											'T V S Car Repair','H.K.Motors','Venus Motors','Tata Motors','Vineeth Paints',
+											'Royal Drive Car Accessories', 'German Motors','Vinayaka Service Station'],
 
             'Auto-Mobile Service': ['Royal autox','Siva Automobiles','Ambady Auto Works','Shiva Sakthi','Real Touch Automobiles','Moto Lab','Indigoo International','My Car Motors','The Marshal Garage', 'Mariyam Service Center', 'Workshop13', 'Workshop15'],
 
-            'Tire Replacement': ['Vinod Workshop','T V S Car Repair', 'H.K.Motors','Venus Motors','Tata Motors','Vineeth Paints','K G Auto Works','Siva Automobiles','Ambady Auto Works','Shiva Sakthi','Moto Lab','RVS MOTO HUB','Indigoo International','My Car Motors','Royal autox','Sree Mookambika','MS Two Wheeler Works','Jackson two wheeler','Radhakrishna Workshop','Shiva Sakthi','Amme Bhaghavathi','Nithya Workshop','Elegent workshop','Kailas Two Wheeler','Car cool Car Ac', 'Vision Auto Center','DS Service Center','German Tech Skoda','Vinayaka Service Station','German Motors','Royal Driver car','Friday Workshop','The Marshal Garage','Friends Automobiles and Industrial workshops', 'Saras car ac workshops', 'Ganga Workshops', 'Saroj Workshop','Mariyam Service Center'],
+            'Tire Replacement': ['Vinod Workshop','MySyara - Car Care on your schedule','Kumar Auto Works','Friends Automobiles And Industrial Workshop','Saras Car A/C Workshop','Ganga Two Wheeler Workshop','Saroj Two Wheeler Workshop',
+							  			'Mariyam all car service center','The Marshal Garage','Friday Club','T V S Car Repair','H.K.Motors','Venus Motors','Tata Motors','Vineeth Paints'],
 
-            'Oil Change': ['Venus Motors','Siva Automobiles','Ambady Auto Works','Kelester Engineers','Car Cardiac Care','RVS MOTO HUB','My Car Motors','Royal autox','Petrol Issues Garage','Marikar Honda Service','Jackson two wheeler','U V P Two Wheeler','Elegent workshop','Kailas Two Wheeler','Car cool Car Ac','Vision Auto Center','German Motors','Friday Workshop','The Marshal Garage','Friends Automobiles and Industrial workshops', 'Saras car ac workshops', 'Ganga Workshops', 'Saroj Workshop','Mariyam Service Center','Royal Driver car']
-
+            'Oil Change': ['Vinod Workshop','MySyara - Car Care on your schedule',
+							 'Friends Auto Electrical works','Surabhi Autos and two wheeler workshop','Concept Colours',
+														  'Kumar Auto Works','Friends Automobiles And Industrial Workshop','Saras Car A/C Workshop','Ganga Two Wheeler Workshop','Saroj Two Wheeler Workshop',
+														  			'Mariyam all car service center','The Marshal Garage','Friday Club','Royal Drive Car Accessories', 'German Motors','Vinayaka Service Station'],
+			'Painting Services':['Friends Auto Electrical works','Surabhi Autos and two wheeler workshop','Concept Colours',
+																						  'Kumar Auto Works','Friends Automobiles And Industrial Workshop','Saras Car A/C Workshop','Ganga Two Wheeler Workshop','Saroj Two Wheeler Workshop',
+																						  			'Mariyam all car service center','The Marshal Garage','Friday Club','Royal Drive Car Accessories', 'German Motors','Vinayaka Service Station'],
+			'A/C Repair':['My Car Motors and Spares','RVS MOTO HUB','Moto Lab','Vinod Workshop','Concept Colours','Saras Car A/C Workshop','Mariyam all car service center',
+			'Maruti Suzuki Authorised Service','H.K.Motors','Aaramam Service Station','Car Cool Car Ac And Auto Electrical Works']
+			
         };
 
 
 
         const vehicleTypes = {
 
-            'Car': ['Vinod Workshop','Gopans Service Center','T V S Car Repair', 'H.K.Motors','Venus Motors','Tata Motors','Vineeth Paints','Siva Automobiles','Kelester Engineers','Sm Car Beauty Clinic','Imperial','Real Touch Automobiles','Car Cardiac Care','M Tech Motors','Moto Lab','RVS MOTO HUB','My Car Motors','Maruti Suzuki Service','Petrol Issues Garage','Marikar Honda Service','Shiva Sakthi','Bismi Car center','Car cool Car Ac','Vision Auto Center','Aramam Service Station','DS Service Center','German Tech Skoda','Vinayaka Service Station','German Motors','Royal Driver car','Kailas Two Wheeler','Friends Automobiles ', 'Gopans Service Center', 'The Marshal Garage', 'Saroj Workshop'],
+            'Car': ['Moto Lab','M Tech Motors','Real Touch Automobiles','Sm Car Beauty Clinic','Kelester Engineers',
+						'M Tech Motors','Perfect Maruti Service Center','Concept Colours','Friends Automobiles And Industrial Workshop',
+						'Tata Motors','Vineeth Paints','Royal Drive Car Accessories','Germantech Skoda Service Center',
+									'Aaramam Service Station','Salamath Service Station','Indus Motors'],
 
-            'Bike': ['Vinod Workshop','Venus Motors','Siva Automobiles','Shiva Sakthi','Kelester Engineers','M Tech Motors','RVS MOTO HUB','Indigoo International','Royal autox','Jackson two wheeler','Radhakrishna Workshop','Petrol Issues Garage','MS Two Wheeler Works','Sree Mookambika','Royal autox','Amme Bhaghavathi','U V P Two Wheeler','Vinayaka Service Station','Elegent workshop','Mars Auto Electrical Workshops', 'Concept Color', 'SB Workshop'],
+            'Bike': ['Sm Car Beauty Clinic','Kelester Engineers','Vinod Workshop',
+														  'Elegant Workshop','Sree padam Two wheeler Workshop','Sivakumar\'s workshop','M Tech Motors','Chandran\'s Workshop','Kannan Car Workshop'
+														  ,'Vinod Workshop','MySyara - Car Care on your schedule',
+														  'Friends Auto Electrical works','Surabhi Autos and two wheeler workshop','Concept Colours',
+														  'Kumar Auto Works','Friends Automobiles And Industrial Workshop','Saras Car A/C Workshop','Ganga Two Wheeler Workshop','Saroj Two Wheeler Workshop',
+														  			'Mariyam all car service center','The Marshal Garage','Friday Club',
+																	'Friends Automobiles And Industrial Workshop','Saras Car A/C Workshop','Ganga Two Wheeler Workshop','Saroj Two Wheeler Workshop',
+																				'Mariyam all car service center','The Marshal Garage','Friday Club',
+																				'T V S Car Repair','H.K.Motors','Venus Motors','Tata Motors','Vineeth Paints'],
 
-            'Auto Rikshaw': ['Royal autox','K G Auto Works','Ambady Auto Works','Kelester Engineers','M Tech Motors','Royal autox','Sree Mookambika','Radhakrishna Workshop','Nithya Workshop','Auto','Vinayaka Service Station','Elegent workshop','Kailas Two Wheeler','Perfect Maruti Service center', 'Surabhi Workshops']
-
+            'Auto Rikshaw': ['Surabhi Autos and two wheeler workshop','Aaramam Service Station','Salamath Service Station','Nithya Workshop','Ambady Auto Works'],
+			'Scooter':[			'Sm Car Beauty Clinic','Kelester Engineers','Vinod Workshop',
+							  'Elegant Workshop','Sree padam Two wheeler Workshop','Sivakumar\'s workshop','M Tech Motors','Chandran\'s Workshop','Kannan Car Workshop'
+							  ,'Vinod Workshop','MySyara - Car Care on your schedule',
+							  'Friends Auto Electrical works','Surabhi Autos and two wheeler workshop','Concept Colours',
+							  'Kumar Auto Works','Friends Automobiles And Industrial Workshop','Saras Car A/C Workshop','Ganga Two Wheeler Workshop','Saroj Two Wheeler Workshop',
+							  			'Mariyam all car service center','The Marshal Garage','Friday Club',
+										'Friends Automobiles And Industrial Workshop','Saras Car A/C Workshop','Ganga Two Wheeler Workshop','Saroj Two Wheeler Workshop',
+													'Mariyam all car service center','The Marshal Garage','Friday Club',]
         };
 
 
