@@ -1072,46 +1072,114 @@ nav{
 
 						.goog-te-combo {
 						   background-color: transparent !important;
-						    color: rgb(255, 255, 255) !important;
+						    color: rgb(255, 0, 0) !important;
 						    font-size: 16px !important;
 						    border: 2px solid crimson !important;
 						    border-radius: 5px !important;
 							padding:5px;
 						}
+						
+						
+						/*feedback*/
+						#feedbackPopup {
+																		      display: none;
+																		      position: fixed;
+																		      bottom: 20px;
+																		      right: 20px;
+																		      z-index: 1000;
+																		      width: 300px;
+																		      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+																		    }
+
+												                         .rating-container {
+
+												                          text-align: center;
+
+												                          }
+
+
+
+												                          .star-rating {
+
+												                          display: flex;
+
+												                          justify-content: center;
+
+												                          margin: 20px 0;
+
+												                          }
+
+
+
+												                          .star {
+
+												                          font-size: 40px;
+
+												                          color: lightgray;
+
+												                          cursor: pointer;
+
+												                          margin: 0 5px;
+
+												                          transition: color 0.2s;
+
+												                          }
+
+
+
+												                          input[type="radio"] {
+
+												                          display: none;
+
+												                          }
+
+
+
+												                          .star.checked {
+
+												                          color: orange;
+
+												                          }
+
+
+
+												                         
+
+
+
+												                          #feedback {
+
+												                          display: flex;
+
+												                          align-items: center;
+
+												                          justify-content: center;
+
+												                          margin-top: 10px;
+
+												                          }
+
+
+
+												                          #feedback-text {
+
+												                          font-size: 18px;
+
+												                          margin-right: 1px;
+
+												                          }
+
+
+
+												                          #feedback-emoji {
+
+												                          font-size: 24px;
+
+												                          }
+
 	</style>
 	<!--profile-->
-	<div class="body">
-		<!--
-		
-		<!--profile container
-		<div class="profile-container" >
-			        <div class="profile-header">
-			 
-			            <h1 class="profile-name">John Doe</h1>
-			            <p class="profile-bio">Web Developer | Tech Enthusiast | Blogger</p>
-			        </div>
-			        <div class="profile-content">
-			            <h2>About Me</h2>
-			            <p>Hello! I'm John Doe, a passionate web developer with experience in creating dynamic and user-friendly websites. I love exploring new technologies and sharing my knowledge through my blog.</p>
-			            
-			            <h2>Skills</h2>
-			            <ul class="skills-list">
-			                <li>HTML/CSS</li>
-			                <li>JavaScript</li>
-			                <li>React</li>
-			                <li>Node.js</li>
-			                <li>Python</li>
-			            </ul>
-			            
-			            <h2>Social Media</h2>
-			            <div class="social-media">
-			                <a href="https://twitter.com/" target="_blank">Twitter</a>
-			                <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
-			                <a href="https://github.com/" target="_blank">GitHub</a>
-			            </div>
-			        </div>
-			    </div>-->
-	</div>
+
 <!--Request for a call form-->
 	
 
@@ -2260,125 +2328,75 @@ nav{
 
 						                  </script>
 
-						                     <style>
-
-						                         .rating-container {
-
-						                          text-align: center;
-
-						                          }
-
-
-
-						                          .star-rating {
-
-						                          display: flex;
-
-						                          justify-content: center;
-
-						                          margin: 20px 0;
-
-						                          }
-
-
-
-						                          .star {
-
-						                          font-size: 40px;
-
-						                          color: lightgray;
-
-						                          cursor: pointer;
-
-						                          margin: 0 5px;
-
-						                          transition: color 0.2s;
-
-						                          }
-
-
-
-						                          input[type="radio"] {
-
-						                          display: none;
-
-						                          }
-
-
-
-						                          .star.checked {
-
-						                          color: orange;
-
-						                          }
-
-
-
-						                         
-
-
-
-						                          #feedback {
-
-						                          display: flex;
-
-						                          align-items: center;
-
-						                          justify-content: center;
-
-						                          margin-top: 10px;
-
-						                          }
-
-
-
-						                          #feedback-text {
-
-						                          font-size: 18px;
-
-						                          margin-right: 1px;
-
-						                          }
-
-
-
-						                          #feedback-emoji {
-
-						                          font-size: 24px;
-
-						                          }
-
-						                     </style>
+						                   
 
 						             <!--feed back END*****-->
 						<!-- The form -->
-						<div class="feedback-form">
-						        <h2 style="color:white">User Rating</h2>
-								<form th:action="@{/ratings}" method="POST" id="feedbackForm">
-								        <div class="rating">
-								            <input type="radio"  class="star" id="star5" name="rating" value="5" onclick="selectStar(5)">
-								            <label for="star5" >&#9733;</label>
-								            <input type="radio"class="star" id="star4" name="rating" value="4" onclick="selectStar(4)">
-								            <label for="star4"  >&#9733;</label>
-								            <input type="radio" class="star" id="star3" name="rating" value="3" onclick="selectStar(3)">
-								            <label for="star3"  >&#9733;</label>
-								            <input type="radio"class="star" id="star2" name="rating" value="2" onclick="selectStar(2)">
-								            <label for="star2"  >&#9733;</label>
-								            <input type="radio" class="star" id="star1" name="rating" value="1" onclick="selectStar(1)">
-								            <label for="star1"  >&#9733;</label>
-								        </div>
-										<div id="feedback">
+	<button class="btn btn-primary" onclick="showFeedbackForm()">Give Feedback</button>
+	<div id="success_Message" class="text-success mt-3">
+	        <p th:text="${message}"></p>
+	    </div>
+	
+	<div id="feedbackPopup" class="card">
+	    <div class="card-header bg-primary text-white">
+	      Feedback Form
+	      <button type="button" class="btn-close btn-close-white float-end" aria-label="Close" onclick="hideFeedbackForm()"></button>
+	    </div>
+	    <div class="card-body">
+	     <form th:action="@{/submitReview}" method="post">
+	      
+			<div class="mb-3">
+			       <label for="name" class="form-label text-dark">Name</label>
+			       <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+			   </div>
+			<div class="mb-3">
+			          <label for="review" class="form-label text-dark">  Review</label>
+			          <textarea class="form-control" id="review" name ="review" rows="3" placeholder="Write your review" required></textarea>
+			 </div>
+			<div class="mb-3">
+						<label for="rating" class="form-label text-dark">User Rating</label>
+					<div class="rating">
+										
+						<input type="radio"  class="star" id="star5" name="rating" value="5" onclick="selectStar(5)">
+						<label for="star5" >&#9733;</label>
+						<input type="radio"class="star" id="star4" name="rating" value="4" onclick="selectStar(4)">
+						<label for="star4"  >&#9733;</label>
+						<input type="radio" class="star" id="star3" name="rating" value="3" onclick="selectStar(3)">
+						<label for="star3"  >&#9733;</label>
+						<input type="radio"class="star" id="star2" name="rating" value="2" onclick="selectStar(2)">
+						<label for="star2"  >&#9733;</label>
+						<input type="radio" class="star" id="star1" name="rating" value="1" onclick="selectStar(1)">
+						<label for="star1"  >&#9733;</label>
+					</div>
+					<div id="feedback">
 
-										                        <span id="feedback-text"></span>
+								 <span id="feedback-text" class="text-dark"></span>
 
-										                        <span id="feedback-emoji"></span>
+								<span id="feedback-emoji"></span>
 
-										                        </div>
+					</div>
+				</div>
+	        </div>
+	       
+	 <button type="submit" class="submit-btn">Submit</button>
+ 	      </form>
+		  
+		  
+		 
+	    </div>
+	  </div>
 
-								        <button type="submit" class="submit-btn">Submit</button>
-								    </form>
-									<div id="success_Message" class="success-message">Thank you for your feedback!</div>
-						    </div>
+	  <script>
+	    function showFeedbackForm() {
+	      document.getElementById('feedbackPopup').style.display = 'block';
+	    }
+
+	    function hideFeedbackForm() {
+	      document.getElementById('feedbackPopup').style.display = 'none';
+	    }
+	  </script>
+	  
+						
 							
 						<!--Form End-->	
 						
@@ -2433,6 +2451,7 @@ nav{
 		  display: flex;
 		  flex-direction: row-reverse; /* this is the magic */
 		  justify-content: flex-end;
+		  
 		}
 
 		.rating input {
@@ -2442,6 +2461,7 @@ nav{
 		.rating label {
 		  font-size: 24px;
 		  cursor: pointer;
+		  color:darkgray;
 		}
 
 		.rating label:hover,
@@ -2717,7 +2737,7 @@ function topFunction() {
 
   		  'M Tech Motors','Car Cardiac Care','Real Touch Automobiles','Imperial',
 
-  		  'Sm Car Beauty Clinic','Kelester Engineers'],
+  		  'Sm Car Beauty Clinic','Kelester Engineers','Vinod Workshop'],
 
             'Varkala': ['Royal autox', 'Sree Mookambika','MS Two Wheeler Works','Petrol Issues Garage',
 
@@ -2735,11 +2755,11 @@ function topFunction() {
 
             'Vehicle Washes': ['Venus Motors','Sm Car Beauty Clinic','Imperial','Real Touch Automobiles','Car Cardiac Care','RVS MOTO HUB','My Car Motors','Marikar Honda Service', 'Maruti Suzuki Service','Bismi Car center','Car cool Car Ac','Vision Auto Center','Aramam Service Station','DS Service Center','German Tech Skoda','Vinayaka Service Station','German Motors','Saroj Workshop', 'The Marshal Garage', 'Mariyam Service Center', 'Workshop7'],
 
-            'Engine Service': ['Gopans Service Center','T V S Car Repair', 'H.K.Motors','Venus Motors','Tata Motors','Vineeth Paints','K G Auto Works','Siva Automobiles','Shiva Sakthi','Kelester Engineers','Real Touch Automobiles','M Tech Motors','Moto Lab','RVS MOTO HUB','My Car Motors','Royal autox','Sree Mookambika','MS Two Wheeler Works','Jackson two wheeler','Maruti Suzuki Service','Radhakrishna Workshop','Shiva Sakthi','Amme Bhaghavathi','U V P Two Wheeler','Focus Welding','Elegent workshop','Kailas Two Wheeler','Bismi Car center','Car cool Car Ac','Vision Auto Center','Aramam Service Station', 'DS Service Center','German Tech Skoda','Vinayaka Service Station','German Motors','Royal Driver car','Friday Workshop','The Marshal Garage','Friends Automobiles ', 'Saras car ac workshops', 'Ganga Workshops', 'Saroj Workshop','Mariyam Service Center'],
+            'Engine Service': ['Vinod Workshop','Gopans Service Center','T V S Car Repair', 'H.K.Motors','Venus Motors','Tata Motors','Vineeth Paints','K G Auto Works','Siva Automobiles','Shiva Sakthi','Kelester Engineers','Real Touch Automobiles','M Tech Motors','Moto Lab','RVS MOTO HUB','My Car Motors','Royal autox','Sree Mookambika','MS Two Wheeler Works','Jackson two wheeler','Maruti Suzuki Service','Radhakrishna Workshop','Shiva Sakthi','Amme Bhaghavathi','U V P Two Wheeler','Focus Welding','Elegent workshop','Kailas Two Wheeler','Bismi Car center','Car cool Car Ac','Vision Auto Center','Aramam Service Station', 'DS Service Center','German Tech Skoda','Vinayaka Service Station','German Motors','Royal Driver car','Friday Workshop','The Marshal Garage','Friends Automobiles ', 'Saras car ac workshops', 'Ganga Workshops', 'Saroj Workshop','Mariyam Service Center'],
 
             'Auto-Mobile Service': ['Royal autox','Siva Automobiles','Ambady Auto Works','Shiva Sakthi','Real Touch Automobiles','Moto Lab','Indigoo International','My Car Motors','The Marshal Garage', 'Mariyam Service Center', 'Workshop13', 'Workshop15'],
 
-            'Tire Replacement': ['T V S Car Repair', 'H.K.Motors','Venus Motors','Tata Motors','Vineeth Paints','K G Auto Works','Siva Automobiles','Ambady Auto Works','Shiva Sakthi','Moto Lab','RVS MOTO HUB','Indigoo International','My Car Motors','Royal autox','Sree Mookambika','MS Two Wheeler Works','Jackson two wheeler','Radhakrishna Workshop','Shiva Sakthi','Amme Bhaghavathi','Nithya Workshop','Elegent workshop','Kailas Two Wheeler','Car cool Car Ac', 'Vision Auto Center','DS Service Center','German Tech Skoda','Vinayaka Service Station','German Motors','Royal Driver car','Friday Workshop','The Marshal Garage','Friends Automobiles and Industrial workshops', 'Saras car ac workshops', 'Ganga Workshops', 'Saroj Workshop','Mariyam Service Center'],
+            'Tire Replacement': ['Vinod Workshop','T V S Car Repair', 'H.K.Motors','Venus Motors','Tata Motors','Vineeth Paints','K G Auto Works','Siva Automobiles','Ambady Auto Works','Shiva Sakthi','Moto Lab','RVS MOTO HUB','Indigoo International','My Car Motors','Royal autox','Sree Mookambika','MS Two Wheeler Works','Jackson two wheeler','Radhakrishna Workshop','Shiva Sakthi','Amme Bhaghavathi','Nithya Workshop','Elegent workshop','Kailas Two Wheeler','Car cool Car Ac', 'Vision Auto Center','DS Service Center','German Tech Skoda','Vinayaka Service Station','German Motors','Royal Driver car','Friday Workshop','The Marshal Garage','Friends Automobiles and Industrial workshops', 'Saras car ac workshops', 'Ganga Workshops', 'Saroj Workshop','Mariyam Service Center'],
 
             'Oil Change': ['Venus Motors','Siva Automobiles','Ambady Auto Works','Kelester Engineers','Car Cardiac Care','RVS MOTO HUB','My Car Motors','Royal autox','Petrol Issues Garage','Marikar Honda Service','Jackson two wheeler','U V P Two Wheeler','Elegent workshop','Kailas Two Wheeler','Car cool Car Ac','Vision Auto Center','German Motors','Friday Workshop','The Marshal Garage','Friends Automobiles and Industrial workshops', 'Saras car ac workshops', 'Ganga Workshops', 'Saroj Workshop','Mariyam Service Center','Royal Driver car']
 
@@ -2749,9 +2769,9 @@ function topFunction() {
 
         const vehicleTypes = {
 
-            'Car': ['Gopans Service Center','T V S Car Repair', 'H.K.Motors','Venus Motors','Tata Motors','Vineeth Paints','Siva Automobiles','Kelester Engineers','Sm Car Beauty Clinic','Imperial','Real Touch Automobiles','Car Cardiac Care','M Tech Motors','Moto Lab','RVS MOTO HUB','My Car Motors','Maruti Suzuki Service','Petrol Issues Garage','Marikar Honda Service','Shiva Sakthi','Bismi Car center','Car cool Car Ac','Vision Auto Center','Aramam Service Station','DS Service Center','German Tech Skoda','Vinayaka Service Station','German Motors','Royal Driver car','Kailas Two Wheeler','Friends Automobiles ', 'Gopans Service Center', 'The Marshal Garage', 'Saroj Workshop'],
+            'Car': ['Vinod Workshop','Gopans Service Center','T V S Car Repair', 'H.K.Motors','Venus Motors','Tata Motors','Vineeth Paints','Siva Automobiles','Kelester Engineers','Sm Car Beauty Clinic','Imperial','Real Touch Automobiles','Car Cardiac Care','M Tech Motors','Moto Lab','RVS MOTO HUB','My Car Motors','Maruti Suzuki Service','Petrol Issues Garage','Marikar Honda Service','Shiva Sakthi','Bismi Car center','Car cool Car Ac','Vision Auto Center','Aramam Service Station','DS Service Center','German Tech Skoda','Vinayaka Service Station','German Motors','Royal Driver car','Kailas Two Wheeler','Friends Automobiles ', 'Gopans Service Center', 'The Marshal Garage', 'Saroj Workshop'],
 
-            'Bike': ['Venus Motors','Siva Automobiles','Shiva Sakthi','Kelester Engineers','M Tech Motors','RVS MOTO HUB','Indigoo International','Royal autox','Jackson two wheeler','Radhakrishna Workshop','Petrol Issues Garage','MS Two Wheeler Works','Sree Mookambika','Royal autox','Amme Bhaghavathi','U V P Two Wheeler','Vinayaka Service Station','Elegent workshop','Mars Auto Electrical Workshops', 'Concept Color', 'SB Workshop'],
+            'Bike': ['Vinod Workshop','Venus Motors','Siva Automobiles','Shiva Sakthi','Kelester Engineers','M Tech Motors','RVS MOTO HUB','Indigoo International','Royal autox','Jackson two wheeler','Radhakrishna Workshop','Petrol Issues Garage','MS Two Wheeler Works','Sree Mookambika','Royal autox','Amme Bhaghavathi','U V P Two Wheeler','Vinayaka Service Station','Elegent workshop','Mars Auto Electrical Workshops', 'Concept Color', 'SB Workshop'],
 
             'Auto Rikshaw': ['Royal autox','K G Auto Works','Ambady Auto Works','Kelester Engineers','M Tech Motors','Royal autox','Sree Mookambika','Radhakrishna Workshop','Nithya Workshop','Auto','Vinayaka Service Station','Elegent workshop','Kailas Two Wheeler','Perfect Maruti Service center', 'Surabhi Workshops']
 
@@ -2870,25 +2890,7 @@ function topFunction() {
   <!--bookin end-->
   <!--reating-->
 	
-  <script>
-          $(document).ready(function () {
-              $('#feedbackForm').on('submit', function (event) {
-                  event.preventDefault();
-
-                  $.ajax({
-                      type: 'POST',
-                      url: '/ratings',
-                      data: $(this).serialize(),
-                      success: function (response) {
-                          $('#success_Message').text(response).show();
-                      },
-                      error: function () {
-                          $('#success_Message').text('please select rating!.').show();
-                      }
-                  });
-              });
-          });
-      </script>
+  
 	  <!--Pop up for vehicle Washes-->
 	  <div class="modal fade" id="availabilityModal1" tabindex="-1" aria-labelledby="availabilityModalLabel1" aria-hidden="true">
 	      <div class="modal-dialog">
